@@ -10,7 +10,9 @@ export function LandingHeader() {
     <header className="glass-bar sticky top-0 z-50 border-b border-border">
       <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-3 lg:px-8">
         <Logo compact className="sm:hidden" />
-        <Logo className="hidden sm:inline-flex" />
+        {/* `max-sm:hidden` rather than `hidden sm:inline-flex`: Logo already sets an
+            unprefixed `inline-flex`, which wins over `hidden` in the cascade. */}
+        <Logo className="max-sm:hidden" />
 
         <nav className="ml-6 hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
